@@ -1,11 +1,3 @@
 # elosys-zkp
 
-This is the foundation of the Elosys project that knows about the
-[Sapling](https://github.com/zcash/librustzcash/tree/master/zcash_primitives/src/sapling)
-API and its zero-knowledge [proving mechanism](https://github.com/zcash/librustzcash/tree/master/zcash_proofs/src/sapling).
-
-Elosys uses the BLS12 curve.
-
-Much of the code here was originally forked from https://github.com/zcash/librustzcash
-
-Anything that hasn't been forked is re-exported so that this is the main entry point for any related code. No other crates should have a librustzcash dependency.
+The core of the Elosys project is built on the knowledge of the Sapling API and its zero-knowledge proving mechanism. Iron Fish leverages the BLS12 curve. A significant portion of the codebase was initially derived from https://github.com/zcash/librustzcash. Any code that hasn't been forked is re-exported, making this the primary entry point for all associated code. There should be no librustzcash dependency in other crates.
