@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "elosys-mpc",
+    "elosys-phase",
+    "elosys",
+    "elosys-zkp",
+]
+
+[workspace.package]
+authors = ["Elosys <info@elosys.io> (https://elosys.io)"]
+edition = "2021"
+homepage = "https://elosys.io/"
+repository = "https://github.com/ElosysIo/Elosys-Testnet"
+
+[profile.release]
+debug = true
