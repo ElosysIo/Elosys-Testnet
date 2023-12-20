@@ -1,19 +1,7 @@
-# elosys-phase2
+# elosys-phase
 
-Much of the code in this folder was originally forked from https://github.com/ebfull/phase2. The original licenses and copyright are retained in this folder.
+A substantial portion of the code within this directory was initially derived from https://github.com/ebfull/phase2. The original licenses and copyright information remain preserved within this specific directory.
 
-## License
+## Contribution Clause:
 
-Licensed under either of
-
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
-
-at your option.
-
-### Contribution
-
-Unless you explicitly state otherwise, any contribution intentionally
-submitted for inclusion in the work by you, as defined in the Apache-2.0
-license, shall be dual licensed as above, without any additional terms or
-conditions.
+Unless expressly stated otherwise, any deliberately submitted contribution for integration into the project by you, as outlined in the Apache-2.0 license, will be subject to dual licensing as mentioned above, without introducing extra terms or conditions.
