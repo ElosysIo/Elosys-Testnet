@@ -10,7 +10,7 @@ members = [
 
 [workspace.package]
 authors = ["Elosys <info@elosys.io> (https://elosys.io)"]
-edition = "2021"
+edition = "2023"
 homepage = "https://elosys.io/"
 repository = "https://github.com/ElosysIo/Elosys-Testnet"
 
