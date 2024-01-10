@@ -1,0 +1,107 @@
+{
+  "name": "elosys",
+  "version": "1.15.0",
+  "description": "CLI for running and interacting with an Elosys node",
+  "author": "Elosys Team <contact@elosys.network> (https://elosys.io)",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elosysio/elosys-testnet.git"
+  },
+  "license": "MPL-2.0",
+  "files": [
+    "/bin",
+    "/build/**/*.js",
+    "/build/**/*.d.ts",
+    "/build/**/*.d.ts.map",
+    "/build/**/*.json",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@oclif/test": "2.1.0",
+    "@types/blessed": "0.1.17",
+    "@types/inquirer": "8.2.5",
+    "@types/node": "18.11.16",
+    "@types/tar": "6.1.1",
+    "chai": "4.2.0",
+    "cross-env": "7.0.3",
+    "eslint-config-elosys": "*",
+    "eslint-plugin-deprecation": "2.0.0",
+    "jest": "29.7.0",
+    "jest-jasmine2": "29.7.0",
+    "oclif": "2.6.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "29.1.1",
+    "tsc-watch": "4.2.9",
+    "typescript": "5.0.4",
+    "yarn": "^1.22.10"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "tsc -b && eslint --ext .ts,.tsx,.js,.jsx src/",
+    "lint:deprecated": "yarn lint --rule \"deprecation/deprecation: warn\"",
+    "lint:fix": "tsc -b && eslint --ext .ts,.tsx,.js,.jsx src/ --fix",
+    "start:dev": "node start",
+    "start": "yarn build && yarn start:js",
+    "start:js": "cross-env OCLIF_TS_NODE=0 ELOSYS_DEBUG=1 node --expose-gc --inspect=:0 --inspect-publish-uid=http --enable-source-maps bin/run",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:coverage:html": "tsc -b tsconfig.test.json && cross-env NODE_OPTIONS=--experimental-vm-modules jest --testPathIgnorePatterns --coverage --coverage-reporters html",
+    "test:watch": "yarn clean && tsc -b && tsc -b tsconfig.test.json && cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --coverage false",
+    "postpack": "rimraf oclif.manifest.json",
+    "clean": "rimraf build",
+    "prepack": "rimraf build && yarn build && oclif manifest && oclif readme",
+    "oclif:version": "oclif readme && git add README.md"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity": "3",
+    "@aws-sdk/client-s3": "3",
+    "@aws-sdk/client-secrets-manager": "3",
+    "@aws-sdk/s3-request-presigner": "3",
+    "@elosys/rust-nodejs": "1.12.0",
+    "@elosys/sdk": "1.15.0",
+    "@oclif/core": "1.23.1",
+    "@oclif/plugin-help": "5.1.12",
+    "@oclif/plugin-not-found": "2.3.1",
+    "@oclif/plugin-warn-if-update-available": "2.0.40",
+    "@types/tar": "6.1.1",
+    "axios": "0.21.4",
+    "bech32": "2.0.0",
+    "blessed": "0.1.81",
+    "blru": "0.1.6",
+    "buffer-map": "0.0.7",
+    "chalk": "4.1.2",
+    "inquirer": "8.2.5",
+    "json-colorizer": "2.2.2",
+    "supports-hyperlinks": "2.2.0",
+    "tar": "6.1.11",
+    "uuid": "8.3.2"
+  },
+  "oclif": {
+    "macos": {
+      "identifier": "network.elosys.cli"
+    },
+    "commands": "./build/src/commands",
+    "hooks": {
+      "init": "./build/src/hooks/version"
+    },
+    "bin": "elosys",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "topics": {}
+  },
+  "bin": {
+    "elosys": "./bin/run"
+  },
+  "bugs": {
+    "url": "https://github.com/elosysio/elosys-testnet/issues"
+  },
+  "homepage": "https://elosys.io"
+}
